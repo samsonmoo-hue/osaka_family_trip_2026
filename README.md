@@ -4,19 +4,13 @@ Static one-page itinerary for a five-person Osaka family trip from 2026-07-21 to
 
 ## GitHub Pages
 
-This repository is ready for GitHub Pages.
-
-Recommended publishing options:
-
-1. Settings -> Pages -> Source: GitHub Actions
-2. Run the included `Deploy static site to GitHub Pages` workflow
-
-If you prefer branch publishing, use:
+This repository is ready for the simplest GitHub Pages setup:
 
 1. Settings -> Pages
 2. Source: Deploy from a branch
 3. Branch: `main`
 4. Folder: `/ (root)`
+5. Save
 
 Expected URL:
 

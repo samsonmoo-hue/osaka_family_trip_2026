@@ -1,23 +1,7 @@
-const checklistKey = "osaka-trip-checklist-v1";
-
 function setupIcons() {
   if (window.lucide) {
     window.lucide.createIcons();
   }
-}
-
-function setupChecklist() {
-  const boxes = [...document.querySelectorAll(".checklist input[type='checkbox']")];
-  if (!boxes.length) return;
-
-  const saved = JSON.parse(localStorage.getItem(checklistKey) || "[]");
-  boxes.forEach((box, index) => {
-    box.checked = Boolean(saved[index]);
-    box.addEventListener("change", () => {
-      const values = boxes.map((item) => item.checked);
-      localStorage.setItem(checklistKey, JSON.stringify(values));
-    });
-  });
 }
 
 function setupActiveNav() {
@@ -47,6 +31,5 @@ function setupActiveNav() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupIcons();
-  setupChecklist();
   setupActiveNav();
 });

@@ -214,7 +214,6 @@ h4 {
 .summary-card,
 .principles article,
 .day-card,
-.tip-box,
 .shopping-grid article {
   border: 1px solid rgba(217, 222, 215, 0.92);
   border-radius: 8px;
@@ -349,8 +348,7 @@ h4 {
 
 .principles article,
 .summary-card,
-.shopping-grid article,
-.tip-box {
+.shopping-grid article {
   padding: 1.1rem;
 }
 
@@ -366,7 +364,6 @@ h4 {
 
 .principles p,
 .summary-card p,
-.tip-box p,
 .shopping-grid li {
   color: var(--muted);
 }
@@ -374,37 +371,6 @@ h4 {
 .summary-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 1rem;
-}
-
-.visual-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.visual-grid figure {
-  min-width: 0;
-  margin: 0;
-  overflow: hidden;
-  border: 1px solid rgba(217, 222, 215, 0.92);
-  border-radius: 8px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
-}
-
-.visual-grid img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  background: #e8ece7;
-}
-
-.visual-grid figcaption {
-  padding: 0.75rem 0.85rem;
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 800;
 }
 
 .day-card {
@@ -475,13 +441,6 @@ h4 {
   font-weight: 760;
 }
 
-.split {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.38fr);
-  gap: 1rem;
-  align-items: start;
-}
-
 .table-wrap {
   overflow-x: auto;
   border: 1px solid var(--line);
@@ -512,10 +471,6 @@ th {
 
 tr:last-child td {
   border-bottom: 0;
-}
-
-.tip-box {
-  border-top: 6px solid var(--coral);
 }
 
 .shopping-grid {
@@ -573,8 +528,7 @@ footer a {
 }
 
 @media (max-width: 920px) {
-  .hero,
-  .split {
+  .hero {
     grid-template-columns: 1fr;
   }
 
@@ -584,8 +538,7 @@ footer a {
 
   .principles,
   .summary-grid,
-  .shopping-grid,
-  .visual-grid {
+  .shopping-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -620,7 +573,6 @@ footer a {
   .principles,
   .summary-grid,
   .shopping-grid,
-  .visual-grid,
   .checklist {
     grid-template-columns: 1fr;
   }
@@ -677,7 +629,6 @@ footer a {
   .day-card,
   .summary-card,
   .principles article,
-  .tip-box,
   .shopping-grid article {
     box-shadow: none;
     break-inside: avoid;

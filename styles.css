@@ -431,7 +431,8 @@ h4 {
   outline-offset: 3px;
 }
 
-.photo-grid img {
+.photo-grid img,
+.photo-grid video {
   display: block;
   width: 100%;
   height: 100%;
@@ -439,13 +440,23 @@ h4 {
   object-fit: cover;
 }
 
-.photo-grid figure.wide img {
+.photo-grid figure.wide img,
+.photo-grid figure.wide video {
   aspect-ratio: 4 / 3;
 }
 
 .photo-grid figure:hover img,
 .photo-grid figure:focus-visible img {
   transform: scale(1.025);
+}
+
+.photo-grid .video-item {
+  cursor: default;
+}
+
+.photo-grid .video-item:hover video,
+.photo-grid .video-item:focus-visible video {
+  transform: none;
 }
 
 .photo-grid figcaption {
@@ -462,6 +473,7 @@ h4 {
 }
 
 .photo-grid img,
+.photo-grid video,
 .lightbox-frame img {
   transition: transform 180ms ease;
 }

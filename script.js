@@ -37,7 +37,7 @@ function setupPhotoLightbox() {
   const previewCaption = lightbox.querySelector("#lightbox-caption");
   const closeButton = lightbox.querySelector(".lightbox-close");
   const backdrop = lightbox.querySelector(".lightbox-backdrop");
-  const triggers = [...document.querySelectorAll("#day1 .photo-trigger")];
+  const triggers = [...document.querySelectorAll(".photo-trigger")];
   let lastFocusedElement = null;
 
   function openLightbox(trigger) {

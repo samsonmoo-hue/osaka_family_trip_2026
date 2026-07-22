@@ -5,10 +5,17 @@ function setupIcons() {
 }
 
 function setupActiveNav() {
-  const links = [...document.querySelectorAll(".nav a")];
+  const links = Array.from(document.querySelectorAll(".nav a"));
   const sections = links
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
+
+  if (!("IntersectionObserver" in window)) {
+    if (links[0]) {
+      links[0].setAttribute("aria-current", "true");
+    }
+    return;
+  }
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -37,12 +44,15 @@ function setupPhotoLightbox() {
   const previewCaption = lightbox.querySelector("#lightbox-caption");
   const closeButton = lightbox.querySelector(".lightbox-close");
   const backdrop = lightbox.querySelector(".lightbox-backdrop");
-  const triggers = [...document.querySelectorAll(".photo-trigger")];
+  const triggers = Array.from(document.querySelectorAll(".photo-trigger"));
   let lastFocusedElement = null;
+
+  if (!previewImage || !previewCaption || !closeButton || !backdrop) return;
 
   function openLightbox(trigger) {
     const image = trigger.querySelector("img");
-    const caption = trigger.dataset.caption || trigger.querySelector("figcaption")?.textContent || "";
+    const captionElement = trigger.querySelector("figcaption");
+    const caption = trigger.dataset.caption || (captionElement ? captionElement.textContent : "");
 
     if (!image) return;
 
@@ -61,7 +71,7 @@ function setupPhotoLightbox() {
     previewImage.alt = "";
     document.body.classList.remove("lightbox-open");
 
-    if (lastFocusedElement?.focus) {
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
       lastFocusedElement.focus();
     }
   }

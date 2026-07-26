@@ -36,6 +36,22 @@ function setupActiveNav() {
   sections.forEach((section) => observer.observe(section));
 }
 
+function setupTopbarAppearance() {
+  const topbar = document.querySelector(".topbar");
+  const hero = document.querySelector(".hero");
+
+  if (!topbar || !hero) return;
+
+  function updateTopbarAppearance() {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    topbar.classList.toggle("is-scrolled", heroBottom <= topbar.offsetHeight);
+  }
+
+  updateTopbarAppearance();
+  window.addEventListener("scroll", updateTopbarAppearance, { passive: true });
+  window.addEventListener("resize", updateTopbarAppearance);
+}
+
 function setupPhotoLightbox() {
   const lightbox = document.querySelector("#photo-lightbox");
   if (!lightbox) return;
@@ -96,5 +112,6 @@ function setupPhotoLightbox() {
 document.addEventListener("DOMContentLoaded", () => {
   setupIcons();
   setupActiveNav();
+  setupTopbarAppearance();
   setupPhotoLightbox();
 });
